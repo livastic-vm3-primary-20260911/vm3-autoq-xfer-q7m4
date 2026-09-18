@@ -1,0 +1,18 @@
+pull_request_rules:
+  - name: vm3 cross-account scope consumer liveness control
+    conditions:
+      - title = VM3 CROSS ACCOUNT COMMIT SCOPE ISOLATION 260918
+      - -label = vm3-crossacct-control-260918
+    actions:
+      label:
+        add:
+          - vm3-crossacct-control-260918
+  - name: vm3 cross-account commit scope must stay account/repo isolated
+    conditions:
+      - title = VM3 CROSS ACCOUNT COMMIT SCOPE ISOLATION 260918
+      - scope = vm3-crossacct-scope-sentinel-260918
+      - -label = vm3-crossacct-leak-260918
+    actions:
+      label:
+        add:
+          - vm3-crossacct-leak-260918
